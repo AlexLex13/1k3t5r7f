@@ -130,3 +130,5 @@ dmypy.json
 
 *.xml
 .idea/
+
+settings.py
