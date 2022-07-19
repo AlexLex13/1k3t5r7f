@@ -1,15 +1,15 @@
-let birdForm = document.querySelectorAll(".bird-form")
+let inputForm = document.querySelectorAll(".input-form")
 let container = document.querySelector("#form-container")
 let addButton = document.querySelector("#add-form")
 let totalForms = document.querySelector("#id_form-TOTAL_FORMS")
 
-let formNum = birdForm.length-1
+let formNum = inputForm.length-1
 addButton.addEventListener('click', addForm)
 
 function addForm(e){
     e.preventDefault()
 
-    let newForm = birdForm[0].cloneNode(true)
+    let newForm = inputForm[0].cloneNode(true)
     let formRegex = RegExp(`form-(\\d){1}-`,'g')
 
     formNum++

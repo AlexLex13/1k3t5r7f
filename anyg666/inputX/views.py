@@ -16,7 +16,7 @@ class InputAddView(TemplateView):
     # Define method to handle GET request
     def get(self, *args, **kwargs):
         # Create an instance of the formset
-        formset = InputFormSet(queryset=Input.objects.none())
+        formset = InputFormSet()
         return self.render_to_response({'input_formset': formset})
 
     def post(self, *args, **kwargs):
@@ -24,7 +24,10 @@ class InputAddView(TemplateView):
 
         # Check if submitted forms are valid
         if formset.is_valid():
-            formset.save()
+            for form in formset:
+                print(form.cleaned_data)
+                inp = Input(content=form.cleaned_data)
+                inp.save()
             return redirect(reverse_lazy("input_list"))
 
         return self.render_to_response({'input_formset': formset})

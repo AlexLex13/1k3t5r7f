@@ -12,7 +12,7 @@
         {% csrf_token %}
         {{input_formset.management_form}}
         {% for form in input_formset %}
-        <div class="bird-form">
+        <div class="input-form">
         {{form.as_p}}
         </div>
         {% endfor %}
