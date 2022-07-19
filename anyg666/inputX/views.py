@@ -1,5 +1,7 @@
 from django.views.generic import ListView
+from .models import Input
 
 
-class InputHome(ListView):
-    pass
+class InputListView(ListView):
+    model = Input
+    template_name = 'input_list.html'
